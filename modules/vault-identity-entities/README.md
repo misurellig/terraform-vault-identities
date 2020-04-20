@@ -4,7 +4,7 @@ This module creates Vault identity entities and relative aliases.
 
 ## Dependencies
 
-Although this module does not strictly depend on any other module, alias creation in Vault depends on authentication method accessor to reference. Hence before creating an alias with this module, an authentication method must exist. This way this module does fetch it by relying on the ==vault_auth_backen== [`vault_auth_backen](https://www.terraform.io/docs/providers/vault/d/auth_backend.html) data source.
+Although this module does not strictly depend on any other module, alias creation in Vault depends on authentication method accessor to reference. Hence before creating an alias with this module, an authentication method must exist. This way this module does fetch it by relying on the [`vault_auth_backen`](https://www.terraform.io/docs/providers/vault/d/auth_backend.html) data source.
 
 To create only entities without any alias just keep the variable `create_entity_aliases` to its default (false)
 
@@ -37,8 +37,6 @@ module "entities" {
     "alias-2" = "user-2"
     "alias-3" = "user-3"
   }
-
-  auth_method_accessor = "auth_method_accessor"
 }
 ```
 
