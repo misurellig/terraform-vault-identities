@@ -32,11 +32,18 @@ module "entities" {
     }
   ]
 
-  aliases = {
-    "alias-1" = "user-1"
-    "alias-2" = "user-2"
-    "alias-3" = "user-3"
-  }
+  aliases = [
+    {
+      "name"   = "jwt-user-1"
+      "entity" = "user-1"
+      "auth_path"   = "jwt"
+    },
+    {
+      "name"   = "oidc-user2"
+      "entity" = "user-2"
+      "auth_path"   = "oidc"
+    }
+  ]
 }
 ```
 
@@ -56,7 +63,7 @@ module "entities" {
 
 | Name | Description | Type | Default |
 |------|-------------|------|---------|
-| aliases | Map of aliases linked to entities | `map` | `{}` |
+| aliases | List of objects defining the alias to entity and auth path match | <pre>list(object({<br>    name      = string<br>    entity    = string<br>    auth_path = string<br>  }))</pre> | `[]` |
 | create_entity_aliases | Enable the creation of entity aliase | `bool` | `false` |
 | entities | List object for the Vault identity entity | <pre>list(object({<br>    name     = string<br>    policies = list(string)<br>    metadata = map(string)<br>  }))</pre> | `[]` |
 

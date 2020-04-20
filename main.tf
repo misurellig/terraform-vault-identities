@@ -11,6 +11,7 @@ module "vault_entities" {
 
   create_entity_aliases = var.create_vault_entity_aliases
   entities              = var.vault_entity_objects
+  aliases               = var.vault_aliases_objects
 }
 
 module "vault_groups" {

@@ -32,11 +32,18 @@ module "entities" {
     }
   ]
 
-  aliases = {
-    "alias-1" = "user-1"
-    "alias-2" = "user-2"
-    "alias-3" = "user-3"
-  }
+  aliases = [
+    {
+      "name"   = "jwt-user-1"
+      "entity" = "user-1"
+      "auth_path"   = "jwt"
+    },
+    {
+      "name"   = "oidc-user2"
+      "entity" = "user-2"
+      "auth_path"   = "oidc"
+    }
+  ]
 }
 
 module "vault_groups" {
@@ -75,6 +82,7 @@ module "vault_groups" {
 | Name | Description | Type | Default |
 |------|-------------|------|---------|
 | create_vault_entity_aliases | n/a | `bool` | `false` |
+| vault_aliases_objects | List of objects defining the alias to entity and auth path match | <pre>list(object({<br>    name      = string<br>    entity    = string<br>    auth_path = string<br>  }))</pre> | `[]` |
 | vault_endpoint | Vault endpoint | `string` | `"http://127.0.0.1:8200"` |
 | vault_entity_objects | List object for the Vault identity entity | <pre>list(object({<br>    name     = string<br>    policies = list(string)<br>    metadata = map(string)<br>  }))</pre> | `[]` |
 | vault_group_objects | List object for Vault identity group | <pre>list(object({<br>    name              = string<br>    type              = string<br>    policies          = list(string)<br>    member_group_ids  = list(string)<br>    member_entity_ids = list(string)<br>    metadata          = map(string)<br>  }))</pre> | `[]` |
