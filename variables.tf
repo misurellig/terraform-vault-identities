@@ -4,7 +4,8 @@ variable "vault_endpoint" {
 }
 
 variable "create_vault_entity_aliases" {
-  default = false
+  description = "Enable Vault entity alias creation"
+  default     = false
 }
 
 variable "vault_entity_objects" {
@@ -13,6 +14,16 @@ variable "vault_entity_objects" {
     name     = string
     policies = list(string)
     metadata = map(string)
+  }))
+  default = []
+}
+
+variable "vault_aliases_objects" {
+  description = "List of objects defining the alias to entity and auth path match"
+  type = list(object({
+    name      = string
+    entity    = string
+    auth_path = string
   }))
   default = []
 }

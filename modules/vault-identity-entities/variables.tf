@@ -9,7 +9,8 @@ variable "entities" {
 }
 
 variable "create_entity_aliases" {
-  default = false
+  description = "Enable Vault entity alias creation"
+  default     = false
 }
 
 variable "aliases" {
