@@ -1,5 +1,7 @@
 # terraform-vault-entities
 
+[![misurellig](https://circleci.com/gh/misurellig/terraform-vault-identities.svg?style=svg)](https://circleci.com/gh/misurellig/workflows/terraform-vault-identities)
+
 This module creates [Hashicorp Vault](https://www.vaultproject.io/) entities and internal groups as part of its [Identity Secrets Engine](https://www.vaultproject.io/docs/secrets/identity).
 
 The main module includes the following submodules:

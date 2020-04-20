@@ -14,10 +14,10 @@ variable "create_entity_aliases" {
 
 variable "aliases" {
   description = "List of objects defining the alias to entity and auth path match"
-  type        = list(object({
-      name = string
-      entity = string
-      auth_path = string
+  type = list(object({
+    name      = string
+    entity    = string
+    auth_path = string
   }))
-  default     = []
+  default = []
 }

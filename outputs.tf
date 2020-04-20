@@ -1,6 +1,6 @@
 output "vault_identity_entities" {
   description = "Map of Vault entity created"
-  value       = module.vault_entities.entities
+  value       = module.vault_entities.entity
 }
 
 output "vault_identity_entity_alias" {
@@ -10,5 +10,5 @@ output "vault_identity_entity_alias" {
 
 output "vault_identity_groups" {
   description = "List of maps with relevant info for Vault created groups"
-  value       = module.groups.identity_group
+  value       = module.vault_groups.group
 }

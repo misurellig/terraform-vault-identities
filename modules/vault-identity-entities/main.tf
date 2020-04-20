@@ -4,7 +4,7 @@ terraform {
 
 data "vault_auth_backend" "backend" {
   for_each = {
-    for alias in var.aliases:
+    for alias in var.aliases :
     alias.name => alias
   }
   path = each.value.auth_path
@@ -22,7 +22,7 @@ resource "vault_identity_entity" "entity" {
 
 resource "vault_identity_entity_alias" "alias" {
   for_each = {
-    for alias in var.aliases:
+    for alias in var.aliases :
     alias.name => alias
     if var.create_entity_aliases
   }
