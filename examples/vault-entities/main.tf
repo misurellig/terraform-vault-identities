@@ -3,7 +3,7 @@ terraform {
 }
 
 provider "vault" {
-  address   = "http://127.0.0.1:8200"
+  address = "http://127.0.0.1:8200"
 }
 
 module "entities" {
@@ -15,7 +15,7 @@ module "entities" {
       policies = ["composer", "director"]
       metadata = {
         "category" = "Classical"
-        "level"     = "genious"
+        "level"    = "genious"
       }
     },
     {
